@@ -18,13 +18,19 @@ public class Listas {
         lstUsuario = lista.getArreglo();
     }
 
-    public boolean validarUsuario(String user, String password){
+    public String validarUsuario(String user, String password){
         for (Users u : lstUsuario) {
-            if(u.getCorreo().equals(user) && u.getContraseña().equals(password)) {
-                return true;
+            if(u.getCorreo().equals(user) && u.getContraseña().equals(password) && u.getRol().equals("Administrador")) {
+                return "admin";
+            }
+            else if(u.getCorreo().equals(user) && u.getContraseña().equals(password) && u.getRol().equals("Individual")) {
+                return "individual";
+            }
+            else if(u.getCorreo().equals(user) && u.getContraseña().equals(password) && u.getRol().equals("Kiosko")) {
+                return "kiosko";
             }
         }
-        return false;
+        return "incorrecto";
     }
 
 

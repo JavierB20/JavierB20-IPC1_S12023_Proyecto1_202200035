@@ -117,7 +117,7 @@ public class Login extends javax.swing.JFrame {
         Listas lst = new Listas();
         ArrayList<Users> ListaUsuario;
         
-        Menu menu = new Menu();
+        MenuAdmin menuAdmin = new MenuAdmin();
             
         String user = username.getText();
         String password1 = password.getText();
@@ -126,9 +126,17 @@ public class Login extends javax.swing.JFrame {
         usuario.setContraseña(password1);        
         ListaUsuario = lista.getArreglo();
 
-        if(lst.validarUsuario(user, password1)) {
+        if("admin".equals(lst.validarUsuario(user, password1))) {
             this.setVisible(false);
-            menu.setVisible(true);
+            menuAdmin.setVisible(true);
+        }
+        else if("individual".equals(lst.validarUsuario(user, password1))) {
+            this.setVisible(false);
+            menuAdmin.setVisible(true);
+        }
+        else if("kiosko".equals(lst.validarUsuario(user, password1))) {
+            this.setVisible(false);
+            menuAdmin.setVisible(true);
         }
         else {
             JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrecta, por favor revise sus datos");

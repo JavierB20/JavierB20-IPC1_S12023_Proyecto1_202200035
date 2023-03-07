@@ -5,7 +5,7 @@
 
 package com.mycompany.ipc1_proyecto1;
 
-import Class.Listas;
+import Class.KioskoC;
 import Class.Users;
 import GUI.Login;
 import java.util.ArrayList;
@@ -17,10 +17,15 @@ import java.util.ArrayList;
 public class IPC1_Proyecto1 {
     
     public static ArrayList<Users> usuarios = new ArrayList<Users>();
+    public static ArrayList<KioskoC> kioskos = new ArrayList<KioskoC>();
 
             public ArrayList<Users> getArreglo() {
             return usuarios;
         }
+            
+           public ArrayList<KioskoC> getArregloK() {
+               return kioskos;
+           }
             
     public static void main(String[] args) {
 

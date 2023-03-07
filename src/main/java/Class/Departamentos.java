@@ -8,6 +8,6 @@ package Class;
  *
  * @author Javier
  */
-public class Kiosko {
+public class Departamentos {
     
 }

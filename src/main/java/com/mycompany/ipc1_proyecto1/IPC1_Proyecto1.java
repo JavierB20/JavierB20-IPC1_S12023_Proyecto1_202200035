@@ -20,18 +20,19 @@ public class IPC1_Proyecto1 {
     public static ArrayList<Users> usuarios = new ArrayList<Users>();
     public static ArrayList<KioskoC> kioskos = new ArrayList<KioskoC>();
     public static ArrayList<Regiones> regiones = new ArrayList<Regiones>();
+    
 
-            public ArrayList<Users> getArreglo() {
-                return usuarios;
-            }
-            
-           public ArrayList<KioskoC> getArregloK() {
-               return kioskos;
-           }
-           
-           public ArrayList<Regiones> getArregloR(){
-               return regiones;
-           }
+    public ArrayList<Users> getArreglo() {
+        return usuarios;
+    }
+
+   public ArrayList<KioskoC> getArregloK() {
+       return kioskos;
+   }
+
+   public ArrayList<Regiones> getArregloR(){
+       return regiones;
+   }
             
     public static void main(String[] args) {
 

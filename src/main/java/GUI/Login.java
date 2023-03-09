@@ -2,6 +2,7 @@ package GUI;
 
 import Class.Listas;
 import Class.Users;
+import Class.UsuarioActual;
 import com.mycompany.ipc1_proyecto1.IPC1_Proyecto1;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -11,7 +12,6 @@ import javax.swing.JOptionPane;
  * @author Javier
  */
 public class Login extends javax.swing.JFrame {
-
 
     public Login() {
         initComponents();
@@ -114,11 +114,10 @@ public class Login extends javax.swing.JFrame {
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
         IPC1_Proyecto1 lista = new IPC1_Proyecto1();
         Users usuario = new Users();
+        UsuarioActual currentUser = new UsuarioActual();
         Listas lst = new Listas();
         ArrayList<Users> ListaUsuario;
-        
-        MenuAdmin menuAdmin = new MenuAdmin();
-            
+                    
         String user = username.getText();
         String password1 = password.getText();
         
@@ -127,16 +126,25 @@ public class Login extends javax.swing.JFrame {
         ListaUsuario = lista.getArreglo();
 
         if("admin".equals(lst.validarUsuario(user, password1))) {
+            currentUser.setCorreo(user);
             this.setVisible(false);
-            menuAdmin.setVisible(true);
+            MenuAdmin menu = new MenuAdmin();
+            menu.setVisible(true);
+
         }
         else if("individual".equals(lst.validarUsuario(user, password1))) {
+            currentUser.setCorreo(user);
             this.setVisible(false);
-            menuAdmin.setVisible(true);
+            MenuAdmin menu = new MenuAdmin();
+            menu.setVisible(true);
+
         }
         else if("kiosko".equals(lst.validarUsuario(user, password1))) {
+            currentUser.setCorreo(user);
             this.setVisible(false);
-            menuAdmin.setVisible(true);
+            MenuAdmin menu = new MenuAdmin();
+            menu.setVisible(true);
+
         }
         else {
             JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrecta, por favor revise sus datos");

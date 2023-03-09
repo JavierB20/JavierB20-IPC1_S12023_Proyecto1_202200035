@@ -4,6 +4,10 @@
  */
 package GUI;
 
+import Class.Listas;
+import Class.UsuarioActual;
+import com.mycompany.ipc1_proyecto1.IPC1_Proyecto1;
+
 
 
 /**
@@ -15,13 +19,24 @@ public class MenuAdmin extends javax.swing.JFrame {
     /**
      * Creates new form MenuAdmin
      */
+
+    
     public MenuAdmin() {
         initComponents();
         initComponents2();
+        UsuarioActual currrenUser = new UsuarioActual();
+        Listas obtenerNombre = new Listas();
+        String usuario = currrenUser.getCorreo(); 
+        String user = obtenerNombre.obtnerNombre(usuario);
+        jLUsuario.setText("Bienvenido " + user);
+        
+        
     }
     
     public void initComponents2() {
         setLocationRelativeTo(null);
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +60,8 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLNombre = new javax.swing.JLabel();
         jLUsuario = new javax.swing.JLabel();
         btnNuevoUsuario = new javax.swing.JButton();
+        btnCambio = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,10 +105,24 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jLUsuario.setText("jLabel6");
 
-        btnNuevoUsuario.setText("registrar");
+        btnNuevoUsuario.setText("Nuevo Usuario");
         btnNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoUsuarioActionPerformed(evt);
+            }
+        });
+
+        btnCambio.setText("Cambiar Contraseña");
+        btnCambio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambioActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -118,15 +149,21 @@ public class MenuAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jLUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 13, Short.MAX_VALUE))))
+                        .addGap(0, 13, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnNuevoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNuevoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCambio, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,9 +191,12 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReportes)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(btnNuevoUsuario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnNuevoUsuario)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCambio)
+                    .addComponent(btnSalir))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -175,34 +215,46 @@ public class MenuAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartamentoActionPerformed
-    DepaMunicipios depa = new DepaMunicipios();
+    DepaMunicipios vista = new DepaMunicipios();
     this.setVisible(false);
-    depa.setVisible(true);
+    vista.setVisible(true);
     }//GEN-LAST:event_btnDepartamentoActionPerformed
 
     private void btnKioskoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKioskoActionPerformed
-    Kiosko kiosko = new Kiosko();
+    Kiosko vista = new Kiosko();
     this.setVisible(false);
-    kiosko.setVisible(true);
+    vista.setVisible(true);
     }//GEN-LAST:event_btnKioskoActionPerformed
 
     private void btnRegionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegionesActionPerformed
-    RegionesPrecio region = new RegionesPrecio();
+    RegionesPrecio vista = new RegionesPrecio();
     this.setVisible(false);
-    region.setVisible(true);
+    vista.setVisible(true);
     }//GEN-LAST:event_btnRegionesActionPerformed
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
-    Reportes reportes = new Reportes();
+    Reportes vista = new Reportes();
     this.setVisible(false);
-    reportes.setVisible(true);
+    vista.setVisible(true);
     }//GEN-LAST:event_btnReportesActionPerformed
 
     private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
-    RegistrarUsuario registrar = new RegistrarUsuario();
+    RegistrarUsuario vista = new RegistrarUsuario();
     this.setVisible(false);
-    registrar.setVisible(true);
+    vista.setVisible(true);
     }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
+
+    private void btnCambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambioActionPerformed
+    CambioContraseña vista = new CambioContraseña();
+    this.setVisible(false);
+    vista.setVisible(true);
+    }//GEN-LAST:event_btnCambioActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    Login vista = new Login();
+    this.setVisible(false);
+    vista.setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,11 +292,13 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCambio;
     private javax.swing.JButton btnDepartamento;
     private javax.swing.JButton btnKiosko;
     private javax.swing.JButton btnNuevoUsuario;
     private javax.swing.JButton btnRegiones;
     private javax.swing.JButton btnReportes;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLUsuario;
     private javax.swing.JLabel jLabel1;

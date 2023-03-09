@@ -44,6 +44,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLNombre = new javax.swing.JLabel();
         jLUsuario = new javax.swing.JLabel();
+        btnNuevoUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +88,13 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jLUsuario.setText("jLabel6");
 
+        btnNuevoUsuario.setText("registrar");
+        btnNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,6 +124,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                         .addGap(56, 56, 56)
                         .addComponent(jLUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 13, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNuevoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,7 +155,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReportes)
                     .addComponent(jLabel5))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnNuevoUsuario)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -184,6 +198,12 @@ public class MenuAdmin extends javax.swing.JFrame {
     reportes.setVisible(true);
     }//GEN-LAST:event_btnReportesActionPerformed
 
+    private void btnNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoUsuarioActionPerformed
+    RegistrarUsuario registrar = new RegistrarUsuario();
+    this.setVisible(false);
+    registrar.setVisible(true);
+    }//GEN-LAST:event_btnNuevoUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -222,6 +242,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDepartamento;
     private javax.swing.JButton btnKiosko;
+    private javax.swing.JButton btnNuevoUsuario;
     private javax.swing.JButton btnRegiones;
     private javax.swing.JButton btnReportes;
     private javax.swing.JLabel jLNombre;

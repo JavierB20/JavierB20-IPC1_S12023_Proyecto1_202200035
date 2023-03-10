@@ -135,14 +135,14 @@ public class Login extends javax.swing.JFrame {
         else if("individual".equals(lst.validarUsuario(user, password1))) {
             currentUser.setCorreo(user);
             this.setVisible(false);
-            MenuAdmin menu = new MenuAdmin();
+            MenuUsuario menu = new MenuUsuario();
             menu.setVisible(true);
 
         }
         else if("kiosko".equals(lst.validarUsuario(user, password1))) {
             currentUser.setCorreo(user);
             this.setVisible(false);
-            MenuAdmin menu = new MenuAdmin();
+            MenuKiosko menu = new MenuKiosko();
             menu.setVisible(true);
 
         }

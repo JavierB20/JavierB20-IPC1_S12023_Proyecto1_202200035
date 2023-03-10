@@ -91,6 +91,8 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(194, 137, 64));
+
         jLabel1.setText("Correo electronico");
 
         jLabel2.setText("Nombre");

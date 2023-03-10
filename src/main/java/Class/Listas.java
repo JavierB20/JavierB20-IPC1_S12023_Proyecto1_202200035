@@ -32,7 +32,7 @@ public class Listas {
         }
         return "incorrecto";
     }
-    
+
         public String obtnerNombre(String user){
         for (Users u : lstUsuario) {
             if(u.getCorreo().equals(user) ) {

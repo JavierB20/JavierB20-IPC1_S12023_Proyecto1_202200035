@@ -42,6 +42,16 @@ public class Listas {
         }
         return "";
     }
+        
+    public String obtnerApellido(String user){
+        for (Users u : lstUsuario) {
+            if(u.getCorreo().equals(user) ) {
+                String apellido = u.getApellido();
+                return apellido;
+            }
+        }
+        return "";
+    }
 
 
 }

@@ -137,6 +137,12 @@ public class Users {
         this.img = "";
     }
     
+    public Users(String nombre, String apellido, String correo) {
+        this.correo = correo;
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+    
     public Users(String correo, String nombre, String apellido, String contraseña, String dpi, String fechaNacimiento,
             String genero, String nacionalidad, String alias, String telefono, String rol, String img) {
         this.correo = correo;

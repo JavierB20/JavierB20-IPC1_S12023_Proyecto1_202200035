@@ -4,6 +4,12 @@
  */
 package GUI;
 
+import Class.Listas;
+import Class.Tarjetas;
+import Class.UsuarioActual;
+import com.mycompany.ipc1_proyecto1.IPC1_Proyecto1;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Javier
@@ -27,7 +33,7 @@ public class TarjetaCredito extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTarjeta = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -47,6 +53,11 @@ public class TarjetaCredito extends javax.swing.JFrame {
         jButton1.setText("Volver");
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
 
@@ -80,7 +91,7 @@ public class TarjetaCredito extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -90,7 +101,7 @@ public class TarjetaCredito extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(73, 73, 73)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,6 +127,30 @@ public class TarjetaCredito extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    IPC1_Proyecto1 lst = new IPC1_Proyecto1();
+    Tarjetas tarjetas = new Tarjetas();
+    
+        UsuarioActual currrenUser = new UsuarioActual();
+        Listas obtenerNombre = new Listas();
+        
+        String correo = currrenUser.getCorreo(); 
+        String nombre = obtenerNombre.obtnerNombre(correo);
+        String apellido = obtenerNombre.obtnerApellido(correo);
+
+        String tarjeta = txtTarjeta.getText();
+        
+        tarjetas.setNumTarjeta(tarjeta);
+        tarjetas.setNombre(nombre);
+        tarjetas.setApellido(apellido);
+        tarjetas.setCorreo(correo);
+        
+        (lst.getArregloT()).add(tarjetas);
+        
+        JOptionPane.showMessageDialog(null, "Tarjeta agregada con exito");
+    
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +196,6 @@ public class TarjetaCredito extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtTarjeta;
     // End of variables declaration//GEN-END:variables
 }

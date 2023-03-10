@@ -7,6 +7,7 @@ package com.mycompany.ipc1_proyecto1;
 
 import Class.KioskoC;
 import Class.Regiones;
+import Class.Tarjetas;
 import Class.Users;
 import GUI.Login;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class IPC1_Proyecto1 {
     public static ArrayList<Users> usuarios = new ArrayList<Users>();
     public static ArrayList<KioskoC> kioskos = new ArrayList<KioskoC>();
     public static ArrayList<Regiones> regiones = new ArrayList<Regiones>();
+    public static ArrayList<Tarjetas> tarjetas = new ArrayList<Tarjetas>();
     
 
     public ArrayList<Users> getArreglo() {
@@ -32,6 +34,10 @@ public class IPC1_Proyecto1 {
 
    public ArrayList<Regiones> getArregloR(){
        return regiones;
+   }
+   
+   public ArrayList<Tarjetas> getArregloT(){
+       return tarjetas;
    }
             
     public static void main(String[] args) {

@@ -15,6 +15,10 @@ public class Reportes extends javax.swing.JFrame {
      */
     public Reportes() {
         initComponents();
+        initComponents2();
+    }
+        public void initComponents2() {
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -45,6 +49,11 @@ public class Reportes extends javax.swing.JFrame {
         jLabel1.setText("Reportes");
 
         jButton2.setText("Generar Reporte");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,6 +103,10 @@ public class Reportes extends javax.swing.JFrame {
     MenuAdmin vista = new MenuAdmin();
     this.setVisible(false);
     vista.setVisible(true);       }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

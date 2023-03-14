@@ -4,9 +4,11 @@
  */
 package GUI;
 
+import Class.Listas;
 import Class.Users;
 import Class.UsuarioActual;
 import com.mycompany.ipc1_proyecto1.IPC1_Proyecto1;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -165,9 +167,32 @@ public class CambioContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        MenuAdmin ventana = new MenuAdmin();
-        this.setVisible(false);
-        ventana.setVisible(true);
+        IPC1_Proyecto1 lista = new IPC1_Proyecto1();
+        Users usuario = new Users();
+        UsuarioActual currentUser = new UsuarioActual();
+        String correo = currentUser.getCorreo();
+        Listas lst = new Listas();
+        ArrayList<Users> ListaUsuario;
+        
+        if("admin".equals(lst.validarRol(correo))) {
+            this.setVisible(false);
+            MenuAdmin menu = new MenuAdmin();
+            menu.setVisible(true);
+
+        }
+        else if("individual".equals(lst.validarRol(correo))) {
+            this.setVisible(false);
+            MenuUsuario menu = new MenuUsuario();
+            menu.setVisible(true);
+
+        }
+        else if("kiosko".equals(lst.validarRol(correo))) {
+            this.setVisible(false);
+            MenuKiosko menu = new MenuKiosko();
+            menu.setVisible(true);
+
+        }
+        
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**

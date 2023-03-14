@@ -52,6 +52,21 @@ public class Listas {
         }
         return "";
     }
+    
+        public String validarRol(String user){
+        for (Users u : lstUsuario) {
+            if(u.getCorreo().equals(user) && u.getRol().equals("Administrador")) {
+                return "admin";
+            }
+            else if(u.getCorreo().equals(user) && u.getRol().equals("Individual")) {
+                return "individual";
+            }
+            else if(u.getCorreo().equals(user) && u.getRol().equals("Kiosko")) {
+                return "kiosko";
+            }
+        }
+        return "incorrecto";
+    }
 
 
 }

@@ -5,7 +5,11 @@
 package GUI;
 
 import Class.KioskoC;
+import Class.Listas;
+import Class.Users;
+import Class.UsuarioActual;
 import com.mycompany.ipc1_proyecto1.IPC1_Proyecto1;
+import java.util.ArrayList;
 
 
 /**
@@ -19,6 +23,10 @@ public class Kiosko extends javax.swing.JFrame {
      */
     public Kiosko() {
         initComponents();
+        initComponents2();
+    }
+        public void initComponents2() {
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -155,9 +163,42 @@ public class Kiosko extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-    MenuAdmin vista = new MenuAdmin();
-    this.setVisible(false);
+
+        IPC1_Proyecto1 lista = new IPC1_Proyecto1();
+        Users usuario = new Users();
+        UsuarioActual currentUser = new UsuarioActual();
+        String correo = currentUser.getCorreo();
+        Listas lst = new Listas();
+        ArrayList<Users> ListaUsuario;
+        
+        if("admin".equals(lst.validarRol(correo))) {
+            this.setVisible(false);
+            MenuAdmin menu = new MenuAdmin();
+            menu.setVisible(true);
+
+        }
+        else if("individual".equals(lst.validarRol(correo))) {
+            this.setVisible(false);
+            MenuUsuario menu = new MenuUsuario();
+            menu.setVisible(true);
+
+        }
+        else if("kiosko".equals(lst.validarRol(correo))) {
+            this.setVisible(false);
+            MenuKiosko menu = new MenuKiosko();
+            menu.setVisible(true);
+
+        }
+        
+        
+    
+    }            
+    
+    
+private void inutil(){
+    Kiosko vista = new Kiosko();
     vista.setVisible(true);       }//GEN-LAST:event_btnSalirActionPerformed
+
 
     /**
      * @param args the command line arguments

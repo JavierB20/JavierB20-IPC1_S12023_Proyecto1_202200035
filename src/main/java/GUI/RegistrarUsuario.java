@@ -283,9 +283,41 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
     
     //validaciones
-    
-    if("".equals(contraseña)) {
-                JOptionPane.showMessageDialog(null, "Ingrese su contraseña");
+    if("".equals(correo)) {
+         JOptionPane.showMessageDialog(null, "Ingrese su correo");       
+    }
+    else if("".equals(nombre)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su nombre");
+    }
+    else if("".equals(apellido)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su apellido");
+    }
+    else if("".equals(contraseña)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su contraseña");
+    }
+    else if("".equals(contraseña2)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su contraseña");
+    }
+    else if("".equals(dpi)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su DPI");
+    }
+    else if("".equals(fechaNacimiento)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su fecha de nacimiento");
+    }
+    else if("".equals(nacionalidad)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su nacionalidad");
+    }
+    else if("".equals(alias)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su alias");
+    }
+    else if("".equals(telefono)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su telefono");
+    }
+    else if("".equals(rol)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su rol");
+    }
+    else if("".equals(genero)) {
+        JOptionPane.showMessageDialog(null, "Ingrese su genero");
     }
     else {
             if(!contraseña.equals(contraseña2)){

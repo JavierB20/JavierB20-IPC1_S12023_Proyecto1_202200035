@@ -278,13 +278,17 @@ public class RegistrarUsuario extends javax.swing.JFrame {
     String telefono = txtTelefono.getText();
     String rol = (String) cbRol.getSelectedItem();
     String genero = (String) cbGenero.getSelectedItem();
-    boolean guarda = true;
+    boolean guarda = false;
     Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$");
 
     
     //validaciones
     
-    if(!contraseña.equals(contraseña2)){
+    if("".equals(contraseña)) {
+                JOptionPane.showMessageDialog(null, "Ingrese su contraseña");
+    }
+    else {
+            if(!contraseña.equals(contraseña2)){
         JOptionPane.showMessageDialog(null, "Las contraseñas no coiciden");
         guarda = false;
     }
@@ -294,28 +298,13 @@ public class RegistrarUsuario extends javax.swing.JFrame {
             guarda = true;
         }
         else {
-                    JOptionPane.showMessageDialog(null, "Las contraseñas debe contener Mayusculas, minusculas, numeros y caracteres especiales");
-        guarda = false;
+            JOptionPane.showMessageDialog(null, "Las contraseñas debe contener Mayusculas, minusculas, numeros y caracteres especiales");
+            guarda = false;
         }
     }
+    }
+
     
-    if(cbRol.getSelectedIndex() == -1) {
-        JOptionPane.showMessageDialog(null, "Seleccione un Rol");
-        guarda = false;
-    }
-    else {
-        rol = (String) cbRol.getSelectedItem();
-        guarda = true;
-    }
-    
-    if(cbGenero.getSelectedIndex() == -1) {
-        JOptionPane.showMessageDialog(null, "Seleccione un Genero");
-        guarda = false;
-    }
-    else {
-        genero = (String) cbGenero.getSelectedItem();
-        guarda = true;    
-    }
     
     if (guarda) {
         usuario.setCorreo(correo);
